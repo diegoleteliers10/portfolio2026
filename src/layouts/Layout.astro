@@ -3,9 +3,20 @@ import "../styles/globals.css";
 
 export interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Software & Data Engineer | AI - Construcción de soluciones prácticas con tecnología, datos e inteligencia artificial. Desarrollo web, mobile, dashboards y Machine Learning.",
+  image = "/og-image.png",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteURL = "https://dlsdev.vercel.app";
+const fullTitle = title.includes("Diego") ? title : `${title} | Diego Letelier`;
 ---
 
 <!doctype html>
@@ -13,26 +24,114 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{title}</title>
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Diego Letelier" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteURL}${image}`} />
+    <meta property="og:site_name" content="Diego Letelier - Portfolio" />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteURL}${image}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Preconnect to external domains -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-      rel="stylesheet"
-    />
-    <meta name="generator" content={Astro.generator} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Diego Letelier",
+      "alternateName": "Diego José Letelier Salbach",
+      "url": siteURL,
+      "image": `${siteURL}/favicon.svg`,
+      "jobTitle": "Software & Data Engineer",
+      "description": description,
+      "nationality": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santiago",
+        "addressRegion": "Metropolitana",
+        "addressCountry": "CL"
+      },
+      "email": "dleteliersr@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/diegoleteliers10/"
+      ],
+      "knowsAbout": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Python",
+        "SQL",
+        "NestJS",
+        "Supabase",
+        "Expo",
+        "Django",
+        "Power BI",
+        "Machine Learning"
+      ],
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "Biovity",
+          "url": siteURL
+        }
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad del Desarrollo"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Henry"
+        }
+      ]
+    })} />
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Diego Letelier - Portfolio",
+      "url": siteURL,
+      "description": description,
+      "author": {
+        "@type": "Person",
+        "name": "Diego Letelier"
+      }
+    })} />
   </head>
-  <body
-    class="bg-[#ffffff] text-[#18181b] font-sans antialiased selection:bg-[#0b3d91]/20 selection:text-[#0b3d91] flex flex-col min-h-screen overflow-x-hidden relative"
-  >
-    <div
-      class="fixed top-0 right-0 w-full lg:w-[35%] h-full bg-[#fafafa] -z-10 border-l border-zinc-50/50 hidden lg:block"
-    >
-    </div>
+  <body class="bg-[#0a0a0a] text-white font-sans antialiased selection:bg-[#0b3d91]/30 selection:text-white overflow-x-hidden">
     <slot />
   </body>
 </html>
