@@ -1,8 +1,8 @@
-# Portfolio Website - Diego Martínez
+# Portfolio Website - Diego Letelier
 
 ## Project Overview
 
-A modern, immersive portfolio website built with Astro, React, and Framer Motion. The design features a dark theme with elegant animations and out-of-the-box visual effects.
+Personal portfolio website for Diego Letelier - Software & Data Engineer | AI. Built with Astro, React, and Framer Motion featuring a clean, modern design with animations.
 
 ## Tech Stack
 
@@ -10,32 +10,21 @@ A modern, immersive portfolio website built with Astro, React, and Framer Motion
 - **Styling**: Tailwind CSS v4
 - **Animations**: Framer Motion (motion/react)
 - **Package Manager**: Bun
-- **Build**: Static site generation
+- **Deployment**: Vercel
 
 ## Key Features
 
 ### Visual Design
-- Dark theme with navy (#0a0a0a) background
-- Custom cursor with smooth follow animation
-- Animated gradient orbs floating in background
-- Grid pattern overlay for depth
-- Glassmorphism effects on cards
-
-### Animations (Framer Motion)
-- Staggered hero text reveal on load
-- Custom cursor that follows mouse movement
-- Scroll progress bar at top
-- 3D tilt effect on project cards (mouse-tracking)
-- Smooth skill bar animations on scroll
-- Floating background orbs with continuous motion
-- Section reveals with fade-up animations
+- Clean light theme (#f2f2f2 background)
+- Dashed borders on cards and buttons
+- Smooth animations and transitions
 
 ### Sections
-1. **Hero**: Full-screen intro with animated name reveal
-2. **Work**: Project cards with hover 3D effects
-3. **About**: Skills with animated progress bars
-4. **Experience**: Timeline with gradient line
-5. **Contact**: Contact form with gradient buttons
+1. **Hero**: Full-screen intro with animated text reveal
+2. **Work**: Project cards with hover effects (Biovity, GigSy, Dashboard Analytics, ML Models)
+3. **About**: Skills with level indicators (Avanzado/Intermedio/Básico)
+4. **Experience**: Timeline (Biovity, indies.la, Telefónica)
+5. **Contact**: Contact form with links to email and LinkedIn
 
 ## Project Structure
 
@@ -46,18 +35,20 @@ portfolio2026/
 │   │   ├── Portfolio.tsx      # Main React component with all sections
 │   │   ├── Header.astro       # Navigation header
 │   │   ├── Footer.astro       # Footer component
-│   │   └── ThemeToggle.astro  # Theme toggle (if needed)
+│   │   └── ThemeToggle.astro  # Theme toggle
 │   ├── layouts/
-│   │   └── Layout.astro       # Base layout
+│   │   └── Layout.astro       # Base layout with SEO meta tags
 │   ├── pages/
 │   │   ├── index.astro        # Main portfolio page
-│   │   └── blog.astro        # Blog placeholder
+│   │   └── blog.astro         # Blog placeholder
 │   └── styles/
-│       └── globals.css        # Global styles & CSS variables
-├── public/                    # Static assets
-├── astro.config.mjs          # Astro configuration
-├── package.json              # Dependencies
-└── tsconfig.json             # TypeScript config
+│       └── globals.css        # Global styles
+├── public/
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── sitemap.xml
+├── astro.config.mjs           # Astro configuration
+└── package.json               # Dependencies
 ```
 
 ## Commands
@@ -76,40 +67,19 @@ bun run build
 bun run preview
 ```
 
-## Design System
-
-### Colors
-- Primary: `#0b3d91` (Navy Blue)
-- Accent: `#7c3aed` (Purple)
-- Background: `#0a0a0a` (Near Black)
-- Surface: `#111111` (Dark Gray)
-- Text: `#ffffff` (White)
-- Text Muted: `#71717a` (Gray)
-
-### Typography
-- Sans: Inter
-- Display: Space Grotesk
-
-## Animation Details
-
-The portfolio uses sophisticated Framer Motion animations:
-
-- **Stagger Children**: Hero text animates with 0.1s delay between items
-- **3D Card Tilt**: Project cards respond to mouse position with rotation
-- **Scroll Progress**: Smooth spring animation tied to scroll position
-- **Floating Orbs**: Continuous parallax movement with varying durations
-
 ## Customization
 
 To customize content, edit `src/components/Portfolio.tsx`:
-- Update `skills` array with your skills
-- Modify `projects` array with your work
-- Edit `experience` array with your history
+- Update `skills` array with skills and levels
+- Modify `projects` array with your projects
+- Edit `experience` array with your work history
 - Update contact information in the Contact section
 
-## Notes
+## SEO
 
-- The blog page is a placeholder - can be expanded with a CMS
-- Uses Tailwind CSS v4 with @theme directive for CSS variables
-- All animations are progressively enhanced (work without JS but enhanced with)
-- Fully responsive design with mobile-first approach
+The site includes comprehensive SEO optimization:
+- Meta titles and descriptions
+- Open Graph and Twitter Card tags
+- JSON-LD structured data (Person, WebSite schemas)
+- robots.txt and sitemap.xml
+- Canonical URLs

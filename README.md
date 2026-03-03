@@ -1,46 +1,73 @@
-# Astro Starter Kit: Basics
+# Diego Letelier - Portfolio
 
-```sh
-bun create astro@latest -- --template basics
+Personal portfolio website showcasing my work as a Software & Data Engineer | AI.
+
+## Tech Stack
+
+- **Framework**: Astro 5.x with React
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Package Manager**: Bun
+- **Deployment**: Vercel
+
+## Features
+
+- Responsive design with light theme
+- Smooth scroll animations
+- Project showcase with dashed borders
+- Skills with level indicators (Avanzado/Intermedio/Básico)
+- Experience timeline
+- Contact form
+- SEO optimized (meta tags, Open Graph, JSON-LD, sitemap)
+
+## Getting Started
+
+```bash
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
+
+# Build for production
+bun run build
+
+# Preview production build
+bun run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```
+src/
+├── components/
+│   └── Portfolio.tsx    # Main component with all sections
+├── layouts/
+│   └── Layout.astro     # Base layout with SEO
+├── pages/
+│   └── index.astro      # Main page
+└── styles/
+    └── globals.css      # Global styles
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Customization
 
-## 🧞 Commands
+Edit `src/components/Portfolio.tsx` to update:
+- Skills (`skills` array)
+- Projects (`projects` array)
+- Experience (`experience` array)
+- Contact info
 
-All commands are run from the root of the project, from a terminal:
+## Deployment
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+Deploy to Vercel with:
 
-## 👀 Want to learn more?
+```bash
+vercel deploy
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Or connect your GitHub repository to Vercel for automatic deployments.
+
+## License
+
+MIT
